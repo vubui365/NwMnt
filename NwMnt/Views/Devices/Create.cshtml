@@ -1,0 +1,22 @@
+﻿@model DeviceViewModel
+@using NwMnt.ViewModels
+
+<h2>Tạo mới thiết bị</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Name">Tên thiết bị:</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IpAddress">Địa chỉ IP:</label>
+        <input asp-for="IpAddress" class="form-control" />
+        <span asp-validation-for="IpAddress" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Type">Loại thiết bị:</label>
+        <input asp-for="Type" class="form-control" />
+        <span asp-validation-for="Type" class="text-danger"></span>
+    </div>
+</form>

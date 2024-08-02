@@ -1,0 +1,17 @@
+﻿@model SensorViewModel
+@using NwMnt.ViewModels
+
+<h2>Chi tiết sensor</h2>
+
+<p>Tên: @Model.Name</p>
+<p>OID: @Model.Oid</p>
+<p>Kiểu dữ liệu: @Model.DataType</p>
+<p>Đơn vị: @Model.Unit</p>
+<p>Ngưỡng cảnh báo: @(Model.Threshold.HasValue ? Model.Threshold.Value.ToString() : "Không có")</p>
+
+<h3>Biểu đồ dữ liệu</h3>
+<div id="chartContainer"></div>
+
+<script>
+    // Sử dụng Chart.js để vẽ biểu đồ dữ liệu
+</script>

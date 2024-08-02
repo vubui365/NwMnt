@@ -1,0 +1,28 @@
+﻿@model IEnumerable<AlertViewModel>
+@using NwMnt.ViewModels
+
+<h2>Danh sách cảnh báo</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Thiết bị</th>
+            <th>Sensor</th>
+            <th>Thời gian</th>
+            <th>Nội dung</th>
+            <th>Trạng thái</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var alert in Model)
+        {
+            <tr>
+                <td>@alert.DeviceName</td>
+                <td>@alert.SensorName</td>
+                <td>@alert.Timestamp</td>
+                <td>@alert.Message</td>
+                <td>@(alert.Acknowledged ? "Đã xác nhận" : "Chưa xác nhận")</td>
+            </tr>
+        }
+    </tbody>
+</table>

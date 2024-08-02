@@ -1,0 +1,34 @@
+﻿@model DeviceViewModel
+@using NwMnt.ViewModels
+
+<h2>Chi tiết thiết bị</h2>
+
+<p>Tên: @Model.Name</p>
+<p>Địa chỉ IP: @Model.IpAddress</p>
+<p>Loại: @Model.Type</p>
+<p>Mô tả: @Model.Description</p>
+<p>Trạng thái: @(Model.Status ? "Online" : "Offline")</p>
+
+<h3>Danh sách sensor</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên</th>
+            <th>OID</th>
+            <th>Kiểu dữ liệu</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sensor in Model.Sensors)
+        {
+            <tr>
+                <td>@sensor.Name</td>
+                <td>@sensor.Oid</td>
+                <td>@sensor.DataType</td>
+                <td><a asp-controller="Sensors" asp-action="Details" asp-route-id="@sensor.Id">Chi tiết</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

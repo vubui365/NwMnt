@@ -1,0 +1,26 @@
+﻿@model ReportDataViewModel // Giả sử bạn đã tạo lớp ReportDataViewModel để chứa dữ liệu báo cáo
+@using NwMnt.ViewModels
+<h2>Báo cáo</h2>
+
+<p>Thiết bị: @Model.DeviceName</p>
+<p>Sensor: @Model.SensorName</p>
+<p>Từ ngày: @Model.FromDate.ToString("dd/MM/yyyy")</p>
+<p>Đến ngày: @Model.ToDate.ToString("dd/MM/yyyy")</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Thời gian</th>
+            <th>Giá trị</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var measurement in Model.Measurements)
+        {
+            <tr>
+                <td>@measurement.Timestamp.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                <td>@measurement.Value</td>
+            </tr>
+        }
+    </tbody>
+</table>

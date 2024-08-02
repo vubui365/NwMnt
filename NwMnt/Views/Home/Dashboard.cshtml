@@ -1,0 +1,27 @@
+﻿@model DashboardViewModel
+@using NwMnt.ViewModels
+
+<h2>Dashboard</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>Thiết bị</h3>
+        <p>Tổng số: @Model.TotalDevices</p>
+        <p>Online: @Model.OnlineDevices</p>
+        <p>Offline: @Model.OfflineDevices</p>
+    </div>
+    <div class="col-md-4">
+        <h3>Cảnh báo</h3>
+        <p>Tổng số: @Model.TotalAlerts</p>
+        <p>Chưa xác nhận: @Model.UnacknowledgedAlerts</p>
+    </div>
+    <div class="col-md-4">
+        <h3>Biểu đồ</h3>
+        <canvas id="cpuUsageChart"></canvas>
+    </div>
+</div>
+
+<script>
+    // Sử dụng Chart.js để vẽ biểu đồ
+</script>
+

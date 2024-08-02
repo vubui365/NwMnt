@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DeviceViewModel>
+@using NwMnt.ViewModels
+
+<div class="container">
+    <h2>Danh sách thiết bị</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Tên</th>
+                <th>Địa chỉ IP</th>
+                <th>Loại</th>
+                <th>Trạng thái</th>
+                <th>Mô tả</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var device in Model)
+            {
+                <tr>
+                    <td>@device.Name</td>
+                    <td>@device.IpAddress</td>
+                    <td>@device.Type</td>
+                    <td>
+                        @if (device.Status)
+                        {
+                            <span class="badge badge-success">Online</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-danger">Offline</span>
+                        }
+                    </td>
+                    <td>@device.Description</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@device.Id" class="btn btn-info btn-sm">
+                            <i class="fas fa-info-circle"></i> Chi tiết
+                        </a>
+                        <a asp-action="Edit" asp-route-id="@device.Id" class="btn btn-warning btn-sm">
+                            <i class="fas fa-edit"></i> Sửa
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@device.Id" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash-alt"></i> Xóa
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
